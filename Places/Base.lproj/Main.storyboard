@@ -78,7 +78,7 @@
                                     <outlet property="nameLabel" destination="Sy3-M1-jbK" id="wDK-zT-nP1"/>
                                     <outlet property="thumbnailImageView" destination="pN3-pC-GGI" id="lNn-Ra-TOV"/>
                                     <outlet property="timeLabel" destination="8ze-VP-RVj" id="fFM-pD-vJ7"/>
-                                    <segue destination="oaX-l1-1Km" kind="show" identifier="showRecipeDetail" id="ii1-eS-Vwt">
+                                    <segue destination="oaX-l1-1Km" kind="show" identifier="showPlaceDetail" id="ii1-eS-Vwt">
                                         <nil key="action"/>
                                     </segue>
                                 </connections>
@@ -183,17 +183,17 @@
                     <connections>
                         <outlet property="detailImageView" destination="Lad-4U-lwZ" id="j0H-JB-LRE"/>
                         <outlet property="tableView" destination="djb-Mg-hbe" id="3fJ-tv-gBe"/>
-                        <segue destination="gyb-FW-qrn" kind="presentation" identifier="reviewRecipe" id="Rxv-0y-sfN"/>
+                        <segue destination="gyb-FW-qrn" kind="presentation" identifier="reviewPlace" id="Rxv-0y-sfN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwv-hc-RP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1932" y="122.78860569715144"/>
         </scene>
-        <!--Review Recipe View Controller-->
+        <!--Review Place View Controller-->
         <scene sceneID="pKA-jX-o4E">
             <objects>
-                <viewController id="gyb-FW-qrn" customClass="ReviewRecipeViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gyb-FW-qrn" customClass="ReviewPlaceViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9EP-JY-2GB"/>
                         <viewControllerLayoutGuide type="bottom" id="fgK-cF-uEg"/>

@@ -20,42 +20,6 @@ class ViewController: UITableViewController {
         
         self.headerTableView.tableFooterView = UIView(frame: CGRect.zero)//provide a cero hight view to avoid showing empty cells at the end of the table
         
-        /*var recipe : Recipe = Recipe(name: "Tortilla de patatas",
-                                     image: #imageLiteral(resourceName: "tortilla"),
-                                     time : 20,
-                                     ingredients : ["Patata", "Huevos", "Cebolla"],
-                                     steps : ["Pelar las patatas y la cebolla",
-                                              "Cortar las patatas y la cebolla y sofreir",
-                                              "Batir los huevos y echarlos 1 minuto a la sarten con el resto de ingredientes"])
-        recipes.append(recipe)
-        
-        recipe = Recipe(name: "Pizza margarita",
-                        image: #imageLiteral(resourceName: "pizza"),
-                        time: 60,
-                        ingredients : ["Harina", "Levadura", "Aceite", "Sal", "Salsa de tomate", "Queso"],
-                        steps : ["Preparar la masa con harina, levadura, aceite y sal",
-                                 "Dejamos reposar la masa por 30 min",
-                                 "Extendemos la masa encima de una bandeja y añadimos el resto de igredientes",
-                                 "Hornear durante 12 minutos"])
-        recipes.append(recipe)
-        
-        recipe = Recipe(name: "Hamburguesa con queso",
-                        image : #imageLiteral(resourceName: "hamburguesa"),
-                        time : 10,
-                        ingredients : ["Pan de hamburguesa", "Lechuga", "Tomate", "Queso", "Carne de hamburguesa"],
-                        steps : ["Poner al fuego la carne al gusto",
-                                 "Montar la hamburguesa con sus ingredientes entre los panes"])
-        recipes.append(recipe)
-        
-        recipe = Recipe(name: "Ensalada Cesar",
-                        image : #imageLiteral(resourceName: "ensalada"),
-                        time : 15,
-                        ingredients : ["Lechuga", "Tomate", "Cebolla", "Pimiento", "Salsa Cesar", "Pollo"],
-                        steps : ["Limpiar todas las verduras y trocearlas",
-                                 "Cocer el pollo al gusto",
-                                 "Juntar todos los ingredientes en un tazon y acompañar con salsa Cesar"])
-        recipes.append(recipe)*/
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,7 +53,7 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let place: Place = places[indexPath.row]
-        let cellId: String = "recipeCellItem"
+        let cellId: String = "placeCellItem"
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! PlaceCellItem
         
@@ -98,21 +62,6 @@ class ViewController: UITableViewController {
         cell.timeLabel.text = place.type
         cell.ingredientsLabel.text = place.location
         
-        /*if recipe.isFavorite {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }*/
-        
-        //rounded image view -> that easy...?
-        /*
-         you can do this also in the storyboard by adding untime attributes for imageView
-         1.- layer.conerRadius at identity inspector
-         2.- enable "Clip to bounds" at attribute inspector
-         */
-        /*cell.thumbnailImageView.layer.cornerRadius = 42.0
-         cell.thumbnailImageView.clipsToBounds = true
-         */
         return cell
     }
     
@@ -159,43 +108,14 @@ class ViewController: UITableViewController {
     
     //MARK: -UITableViewDelegate
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        //Show popup to mark recipe as favorite
-        /*let recipe = recipes[indexPath.row]
-         
-         let alertController = UIAlertController(title: recipe.name, message: "Valora este platillo", preferredStyle: .actionSheet) //.alert to show it as alert dialog
-         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-         
-         var favoriteActionTitle : String = "Me gusta"
-         var alertActionStyle : UIAlertActionStyle = .default
-         if recipe.isFavorite {
-         favoriteActionTitle = "No me gusta"
-         alertActionStyle = .destructive
-         }
-         
-         let favoriteAction = UIAlertAction(title: favoriteActionTitle, style: alertActionStyle) { (action) in
-         
-         let recipe = self.recipes[indexPath.row]
-         recipe.isFavorite = !recipe.isFavorite
-         self.tableView.reloadData()//refresh the whole tableView
-         
-         }
-         
-         alertController.addAction(favoriteAction)
-         alertController.addAction(cancelAction)
-         self.present(alertController, animated: true, completion: nil)*/
-        
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "showRecipeDetail" {
+        if segue.identifier == "showPlaceDetail" {
             
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let selectedRecipe = self.places[indexPath.row]
+                let selectedPlace = self.places[indexPath.row]
                 let destinationViewController = segue.destination as! DetailViewController
-                destinationViewController.place = selectedRecipe
+                destinationViewController.place = selectedPlace
             }
             
         }

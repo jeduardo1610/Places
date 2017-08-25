@@ -1,6 +1,6 @@
 //
 //  DetailViewController.swift
-//  My Recipes
+//  Places
 //
 //  Created by Jorge Eduardo on 14/08/17.
 //  Copyright © 2017 Jorge Eduardo. All rights reserved.
@@ -39,7 +39,7 @@ class DetailViewController: UIViewController {
         
         backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
         backButton.setBackgroundImage(UIImage(named: "rating"), for: .normal)
-        backButton.addTarget(self, action: #selector(self.reviewRecipe(_:)), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(self.reviewPlace(_:)), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: backButton)
         
         
@@ -54,8 +54,8 @@ class DetailViewController: UIViewController {
         
     }
     
-    func reviewRecipe(_ sender : UIBarButtonItem) {
-        performSegue(withIdentifier: "reviewRecipe", sender: self)
+    func reviewPlace(_ sender : UIBarButtonItem) {
+        performSegue(withIdentifier: "reviewPlace", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,7 +120,7 @@ extension DetailViewController : UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "reviewRecipe"{
+        if segue.identifier == "reviewPlace"{
             _ = segue.destination as! ReviewPlaceViewController
         }
     }

@@ -1,6 +1,6 @@
 //
-//  RecipeCellItem.swift
-//  My Recipes
+//  PlaceCellItem.swift
+//  Places
 //
 //  Created by Jorge Eduardo on 11/08/17.
 //  Copyright © 2017 Jorge Eduardo. All rights reserved.

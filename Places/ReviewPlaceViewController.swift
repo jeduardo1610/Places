@@ -1,6 +1,6 @@
 //
-//  ReviewRecipeViewController.swift
-//  My Recipes
+//  ReviewPlaceViewController.swift
+//  Places
 //
 //  Created by Jorge Eduardo on 15/08/17.
 //  Copyright © 2017 Jorge Eduardo. All rights reserved.
