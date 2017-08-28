@@ -19,10 +19,10 @@ class ReviewPlaceViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //To add blurr effect to a view, in this case to the background image view
-        let blurEffect = UIBlurEffect(style: .light)
+       /* let blurEffect = UIBlurEffect(style: .light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
-        backgroundImageView.addSubview(blurEffectView)
+        backgroundImageView.addSubview(blurEffectView)*/
         
         //Scaling stack view which contains rating buttons
         ratingStackView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)

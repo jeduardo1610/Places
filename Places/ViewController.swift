@@ -15,10 +15,82 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(ViewController.printHello(_:))) //customize back button - here we may configure a completion handler if needed
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil/*#selector()*/) //customize back button - here we may configure a completion handler if needed
         
         
-        self.headerTableView.tableFooterView = UIView(frame: CGRect.zero)//provide a cero hight view to avoid showing empty cells at the end of the table
+        self.headerTableView.tableFooterView = UIView(frame: CGRect.zero)//provide a cero hight view to avoid showing empty cells at the end of the table 
+        
+        var place = Place(name: "Gran piramide de Guiza",
+                          type: "Zona Arqueologica",
+                          location: "Gran Pirámide de Guiza, Nazlet El-Semman, Al Haram, Giza, Egipto",
+                          phone : "+20 02-2684-3627",
+                          website : "sca-egypt.org",
+                          image: #imageLiteral(resourceName: "piramide_kheops"))
+        
+        places.append(place)
+        
+        place = Place(name: "Cristo Redentor",
+                      type: "Parque Nacional",
+                      location: "Cristo Redentor - Alto da Boa Vista, Río de Janeiro - Estado de Río de Janeiro, Brasil" ,
+                      phone : "123456789",
+                      website : "cristoredentoroficial.com.br",
+                      image: #imageLiteral(resourceName: "cristo_redentor"))
+        
+        places.append(place)
+        
+        place = Place(name: "El Castillo de Kukulcan",
+                      type: "Zona Arqueologica",
+                      location: "Castillo de Kukulcán, Mérida",
+                      phone : "01 985 851 0137",
+                      website : "chichenitza.inah.gob.mx",
+                      image: #imageLiteral(resourceName: "Chichen_Itza"))
+        
+        places.append(place)
+        
+        place = Place(name: "Coliseo Romano",
+                      type: "Plaza",
+                      location: "Piazza del Colosseo, 1, 00184 Roma RM, Italia",
+                      phone : "+39 06 3996 7700",
+                      website : "archeoroma.beniculturali.it",
+                      image: #imageLiteral(resourceName: "Coliseo_roma"))
+        
+        places.append(place)
+        
+        place = Place(name: "Machu Pichu",
+                      type: "Zona Arqueologica",
+                      location: "Machu Picchu, Urubamba, Cuzco, Perú",
+                      phone : "+51 84 582030",
+                      website : "machupicchu.gob.pe",
+                      image: #imageLiteral(resourceName: "Machu_Picchu"))
+        
+        places.append(place)
+        
+        place = Place(name: "Gran Muralla China",
+                      type: "Parque Nacional",
+                      location: "Muralla China, Pekín, China",
+                      phone : "123456789",
+                      website : "http://www.nationalgeographic.com.es/historia/grandes-reportajes/la-gran-muralla-china_8272",
+                      image: #imageLiteral(resourceName: "muralla_china"))
+        
+        places.append(place)
+        
+        place = Place(name: "Tesoro de Petra",
+                      type: "Ciudad antigua",
+                      location: "Tesoro de Petra, Petra District, Gobernación de Ma'an, Jordania",
+                      phone : "+962 7 9504 0087",
+                      website : "http://nabataea.net/treasury.html",
+                      image: #imageLiteral(resourceName: "Petra_Jordan_BW_21"))
+        
+        places.append(place)
+        
+        place = Place(name: "Taj Mahal",
+                      type: "Mausoleo",
+                      location: "Taj Mahal, Agra, Uttar Pradesh, India",
+                      phone : "123456789",
+                      website : "tajmahal.gov.in",
+                      image: #imageLiteral(resourceName: "taj_mahal"))
+        
+        places.append(place)
         
     }
     
@@ -26,10 +98,6 @@ class ViewController: UITableViewController {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnSwipe = true
         
-    }
-    
-    func printHello(_ sender : UIBarButtonItem) {
-        NSLog("BarButtonAction","Completion handler Back Button")
     }
     
     override func didReceiveMemoryWarning() {

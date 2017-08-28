@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        UINavigationBar.appearance().tintColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) //this change the back button text color
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0.6, green: 0.8, blue: 1.0, alpha: 1.0) // this change the nav bar background color
+        
+        if let barFont = UIFont(name: "Avenir-Light", size: 20.0){ //customize nav bar title, on this case with color and font
+            UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName : barFont]
+        }
+        
         return true
     }
 
