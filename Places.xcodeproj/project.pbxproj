@@ -19,6 +19,7 @@
 		1D14597C1F5094140088FBFF /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D14597B1F5094140088FBFF /* Place.swift */; };
 		1DE19D6D1F54936300F2BDBA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE19D6C1F54936300F2BDBA /* MapKit.framework */; };
 		1DE19D6F1F54C57700F2BDBA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE19D6E1F54C57700F2BDBA /* MapViewController.swift */; };
+		1DE19D711F56102800F2BDBA /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE19D701F56102800F2BDBA /* PlaceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		1D14597B1F5094140088FBFF /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		1DE19D6C1F54936300F2BDBA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1DE19D6E1F54C57700F2BDBA /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		1DE19D701F56102800F2BDBA /* PlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			children = (
 				1D1459611F508AEF0088FBFF /* AppDelegate.swift */,
 				1D1459631F508AEF0088FBFF /* ViewController.swift */,
+				1DE19D701F56102800F2BDBA /* PlaceViewController.swift */,
 				1D1459651F508AEF0088FBFF /* Main.storyboard */,
 				1DE19D6E1F54C57700F2BDBA /* MapViewController.swift */,
 				1D14596A1F508AEF0088FBFF /* LaunchScreen.storyboard */,
@@ -175,6 +178,7 @@
 				1D1459641F508AEF0088FBFF /* ViewController.swift in Sources */,
 				1D1459621F508AEF0088FBFF /* AppDelegate.swift in Sources */,
 				1D14597A1F508EEB0088FBFF /* ReviewPlaceViewController.swift in Sources */,
+				1DE19D711F56102800F2BDBA /* PlaceViewController.swift in Sources */,
 				1D1459771F508EEB0088FBFF /* PlaceCellItem.swift in Sources */,
 				1D1459781F508EEB0088FBFF /* DetailViewController.swift in Sources */,
 				1D14597C1F5094140088FBFF /* Place.swift in Sources */,
