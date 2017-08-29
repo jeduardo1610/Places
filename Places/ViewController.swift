@@ -22,7 +22,7 @@ class ViewController: UITableViewController {
         
         var place = Place(name: "Gran piramide de Guiza",
                           type: "Zona Arqueologica",
-                          location: "Gran Pirámide de Guiza, Nazlet El-Semman, Al Haram, Giza, Egipto",
+                          location: "Al Haram, Nazlet El-Semman, Al Haram, Giza Governorate, Egipto",
                           phone : "+20 02-2684-3627",
                           website : "sca-egypt.org",
                           image: #imageLiteral(resourceName: "piramide_kheops"))
@@ -31,7 +31,7 @@ class ViewController: UITableViewController {
         
         place = Place(name: "Cristo Redentor",
                       type: "Parque Nacional",
-                      location: "Cristo Redentor - Alto da Boa Vista, Río de Janeiro - Estado de Río de Janeiro, Brasil" ,
+                      location: "Parque Nacional da Tijuca Escadaria do Corcovado Humaitá Rio de Janeiro- RJ 21072 Brasil" ,
                       phone : "123456789",
                       website : "cristoredentoroficial.com.br",
                       image: #imageLiteral(resourceName: "cristo_redentor"))
@@ -40,7 +40,7 @@ class ViewController: UITableViewController {
         
         place = Place(name: "El Castillo de Kukulcan",
                       type: "Zona Arqueologica",
-                      location: "Castillo de Kukulcán, Mérida",
+                      location: "Carretera Mérida Puerto Juárez Kilómetro 120, Zona Arqueológica Chichen Itza, 97751 Pisté, Yucatán",
                       phone : "01 985 851 0137",
                       website : "chichenitza.inah.gob.mx",
                       image: #imageLiteral(resourceName: "Chichen_Itza"))
@@ -56,9 +56,9 @@ class ViewController: UITableViewController {
         
         places.append(place)
         
-        place = Place(name: "Machu Pichu",
+        place = Place(name: "Machu Picchu",
                       type: "Zona Arqueologica",
-                      location: "Machu Picchu, Urubamba, Cuzco, Perú",
+                      location: "Aguas Calientes Perú",
                       phone : "+51 84 582030",
                       website : "machupicchu.gob.pe",
                       image: #imageLiteral(resourceName: "Machu_Picchu"))
@@ -67,7 +67,7 @@ class ViewController: UITableViewController {
         
         place = Place(name: "Gran Muralla China",
                       type: "Parque Nacional",
-                      location: "Muralla China, Pekín, China",
+                      location: "Huairou, Pekín, China",
                       phone : "123456789",
                       website : "http://www.nationalgeographic.com.es/historia/grandes-reportajes/la-gran-muralla-china_8272",
                       image: #imageLiteral(resourceName: "muralla_china"))
@@ -76,7 +76,7 @@ class ViewController: UITableViewController {
         
         place = Place(name: "Tesoro de Petra",
                       type: "Ciudad antigua",
-                      location: "Tesoro de Petra, Petra District, Gobernación de Ma'an, Jordania",
+                      location: "Ma'an Wadi Musa Jordania",
                       phone : "+962 7 9504 0087",
                       website : "http://nabataea.net/treasury.html",
                       image: #imageLiteral(resourceName: "Petra_Jordan_BW_21"))

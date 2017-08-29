@@ -29,4 +29,8 @@ class Place {
         self.website = website
     }
     
+    var description : String{
+        return "\(name)\n\(type)\n\(location)\n\(phone)\n\(website)\n\(rating)"
+    }
+    
 }

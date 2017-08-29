@@ -184,11 +184,44 @@
                         <outlet property="detailImageView" destination="Lad-4U-lwZ" id="j0H-JB-LRE"/>
                         <outlet property="tableView" destination="djb-Mg-hbe" id="3fJ-tv-gBe"/>
                         <segue destination="gyb-FW-qrn" kind="presentation" identifier="reviewPlace" id="Rxv-0y-sfN"/>
+                        <segue destination="5cR-Wr-xUH" kind="show" identifier="showMap" id="uO6-0G-Zg2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwv-hc-RP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1932" y="122.78860569715144"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="b8V-k6-qw0">
+            <objects>
+                <viewController id="5cR-Wr-xUH" customClass="MapViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rRD-rZ-1Sl"/>
+                        <viewControllerLayoutGuide type="bottom" id="XAb-gP-XTz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cBs-XI-VmW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mWE-px-sgf">
+                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mWE-px-sgf" secondAttribute="trailing" id="1Om-oW-aIb"/>
+                            <constraint firstItem="mWE-px-sgf" firstAttribute="leading" secondItem="cBs-XI-VmW" secondAttribute="leading" id="cTy-lE-2Ad"/>
+                            <constraint firstItem="XAb-gP-XTz" firstAttribute="top" secondItem="mWE-px-sgf" secondAttribute="bottom" id="n6g-VJ-tKN"/>
+                            <constraint firstItem="mWE-px-sgf" firstAttribute="top" secondItem="rRD-rZ-1Sl" secondAttribute="bottom" id="xbl-YW-Sm9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="mWE-px-sgf" id="4Xg-0x-bdA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tzS-fB-bRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1932" y="923"/>
         </scene>
         <!--Review Place View Controller-->
         <scene sceneID="pKA-jX-o4E">

@@ -19,6 +19,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.delegate = self
+        
         self.tableView.backgroundColor = UIColor(red: 0.8 , green: 0.8, blue: 0.8, alpha: 0.25) //provide custom color for table view
         
         self.tableView.tableFooterView = UIView(frame: CGRect.zero) //provide a cero hight view to avoid showing empty cells at the end of the table
@@ -126,11 +128,16 @@ extension DetailViewController : UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "reviewPlace"{
             _ = segue.destination as! ReviewPlaceViewController
         }
+        
+        if segue.identifier == "showMap"{
+            let destination = segue.destination as! MapViewController
+            destination.place = self.place
+        }
     }
-    
     
     @IBAction func close (segue : UIStoryboardSegue) {
         
@@ -152,5 +159,14 @@ extension DetailViewController : UITableViewDataSource {
 }
 
 extension DetailViewController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 2:
+            self.performSegue(withIdentifier: "showMap", sender: nil)
+        default:
+            break
+        }
+    }
     
 }
