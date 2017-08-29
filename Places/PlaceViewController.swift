@@ -43,11 +43,31 @@ class PlaceViewController: UITableViewController,
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
         self.imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         self.imageView.contentMode = .scaleAspectFill
         self.imageView.clipsToBounds = true
         
+        //leading - left trailing - right
+        //adding autolayout constraints
+        let leadingConstraint = NSLayoutConstraint(item: self.imageView, attribute: .leading, relatedBy: .equal, toItem: self.imageView.superview, attribute: .leading, multiplier: 1, constant: 0)
+        
+        leadingConstraint.isActive = true
+        
+        let trailingConstraint = NSLayoutConstraint(item: self.imageView, attribute: .trailing, relatedBy: .equal, toItem: self.imageView.superview, attribute: .trailing, multiplier: 1, constant: 0)
+        
+        trailingConstraint.isActive = true
+        
+        let topConstraint = NSLayoutConstraint(item: self.imageView, attribute: .top, relatedBy: .equal, toItem: self.imageView.superview, attribute: .top, multiplier: 1, constant: 0)
+
+        topConstraint.isActive = true
+        
+        let bottomConstraint = NSLayoutConstraint(item: self.imageView, attribute: .bottom, relatedBy: .equal, toItem: self.imageView.superview, attribute: .bottom, multiplier: 1, constant: 0)
+        
+        bottomConstraint.isActive = true
+
         dismiss(animated: true, completion: nil)
+        
     }
     
 }
