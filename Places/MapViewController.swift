@@ -19,6 +19,13 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.mapView.delegate = self
+        self.mapView.showsTraffic = true
+        self.mapView.isZoomEnabled = true
+        self.mapView.showsScale = true
+        self.mapView.showsCompass = true
+        
         print(place.description)
         
         let geocoder = CLGeocoder()
@@ -49,5 +56,31 @@ class MapViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+}
+
+extension MapViewController : MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let identifier = "CustomPin"
+        
+        if annotation.isKind(of: MKUserLocation.self) {
+            return nil
+        }
+        //add place image to annotation pin
+        var annotationView : MKPinAnnotationView? = self.mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+        
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.canShowCallout = true
+        }
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 52, height: 52))
+        imageView.image = self.place.image
+        annotationView?.leftCalloutAccessoryView = imageView
+        
+        //change pin tint color
+        annotationView?.pinTintColor = UIColor.green
+        
+        return annotationView
     }
 }
