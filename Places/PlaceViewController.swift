@@ -51,6 +51,12 @@ class PlaceViewController: UITableViewController,
         self.textFieldWebSite.delegate = self
     }
     
+    
+    // Hide status bar
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
