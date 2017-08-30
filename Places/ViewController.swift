@@ -22,7 +22,7 @@ class ViewController: UITableViewController {
         
         
         let fetchRequest : NSFetchRequest<Place> = NSFetchRequest(entityName: "Place")
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         if let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer {
@@ -118,6 +118,7 @@ class ViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //Hide nav bar on swipe table view
         navigationController?.hidesBarsOnSwipe = true
         
     }
