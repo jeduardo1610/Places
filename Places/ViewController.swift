@@ -13,28 +13,34 @@ class ViewController: UITableViewController {
     @IBOutlet var headerTableView: UITableView!
     var places : [Place] = []
     
+    var fetchResultsController : NSFetchedResultsController<Place>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil/*#selector()*/) //customize back button - here we may configure a completion handler if needed
         
         
-        self.headerTableView.tableFooterView = UIView(frame: CGRect.zero)//provide a cero hight view to avoid showing empty cells at the end of the table 
+        let fetchRequest : NSFetchRequest<Place> = NSFetchRequest(entityName: "Place")
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         
-        //Fetching from CoreData
         if let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer {
             let context = container.viewContext
-            //let request : NSFetchRequest<Place> = Place.fetchRequest()
-            let request : NSFetchRequest<Place> = NSFetchRequest(entityName: "Place")
             
+            self.fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            self.fetchResultsController.delegate = self
             do {
-                self.places = try context.fetch(request)
-                self.tableView.reloadData()
+                try fetchResultsController.performFetch()
+                self.places = fetchResultsController.fetchedObjects!
+                
             }catch let error {
-                print("Something went wrong while fetching from Places storage \(error.localizedDescription)")
+                print("Something went wrong while fetching objects from core data \(error.localizedDescription)")
             }
-            
         }
+        
+        
+        self.headerTableView.tableFooterView = UIView(frame: CGRect.zero)//provide a cero hight view to avoid showing empty cells at the end of the table 
         
         /*var place = Place(name: "Gran piramide de Guiza",
                           type: "Zona Arqueologica",
@@ -169,7 +175,7 @@ class ViewController: UITableViewController {
             
             let place = self.places[indexPath.row]
             
-            let shareDefaultText = "Estoy visitando  \(place.name)"
+            let shareDefaultText = "Estoy visitando  \(place.name!)"
             let activityController : UIActivityViewController = UIActivityViewController(activityItems: [shareDefaultText, place.image!], applicationActivities: nil)
             
             self.present(activityController, animated: true, completion: nil)
@@ -213,12 +219,50 @@ class ViewController: UITableViewController {
             if let addPlaceVC = segue.source as? PlaceViewController {
                 if let newPlace = addPlaceVC.place {
                     self.places.append(newPlace)
-                    self.tableView.reloadData()
+                    //self.tableView.reloadData()
                 }
             }
             
         }
         
+    }
+    
+}
+
+extension ViewController : NSFetchedResultsControllerDelegate {
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+        case .insert:
+            if let newIndexPath = newIndexPath {
+                self.tableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        case .update:
+            if let indexPath = indexPath {
+                self.tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+            
+        case .move:
+            if let indexPath = indexPath, let newIndexPath = newIndexPath {
+                self.tableView.moveRow(at: indexPath, to: newIndexPath)
+            }
+        }
+        
+        self.places = controller.fetchedObjects as! [Place]
+        
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.endUpdates()
     }
     
 }
