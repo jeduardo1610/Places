@@ -149,6 +149,17 @@ extension DetailViewController : UITableViewDataSource {
                  self.place.rating = rating
                  backButton.setBackgroundImage(ratingImage, for: .normal)
                     
+                //Updating objects on Core Data
+                    if let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer {
+                        let context = container.viewContext
+                        
+                        do {
+                            try context.save()
+                        }catch let error {
+                            print("Something went wrong while updating objects on Core Data \(error.localizedDescription)")
+                        }
+                    }
+                    
                 }
             }
             
