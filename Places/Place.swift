@@ -8,29 +8,31 @@
 
 import Foundation
 import UIKit
+import CoreData
 
-class Place {
+class Place : NSManagedObject{
     
-    var name : String = ""
-    var type : String = ""
-    var location : String = ""
-    var image : UIImage!
-    var phone : String = ""
-    var website : String = ""
-    var rating : String!
+    @NSManaged var name : String!
+    @NSManaged var type : String!
+    @NSManaged var location : String!
+    @NSManaged var image : NSData?
+    @NSManaged var phone : String?
+    @NSManaged var website : String?
+    @NSManaged var rating : String?
 
     
-    init(name : String, type: String, location: String, phone : String, website : String, image: UIImage){
+    /*init(name : String, type: String, location: String, phone : String, website : String, image: UIImage){
         self.name = name
         self.type = type
         self.location = location
-        self.image = image
+        //self.image = image
         self.phone = phone
         self.website = website
-    }
+    }*/
     
-    var description : String{
-        return "\(name)\n\(type)\n\(location)\n\(phone)\n\(website)\n\(rating)"
+    override var description : String{
+        
+        return ("\(name)\n\(type)\n\(location)\n\(String(describing: phone))\n\(String(describing: website))\n\(String(describing: rating))")
     }
     
 }

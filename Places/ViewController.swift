@@ -20,7 +20,7 @@ class ViewController: UITableViewController {
         
         self.headerTableView.tableFooterView = UIView(frame: CGRect.zero)//provide a cero hight view to avoid showing empty cells at the end of the table 
         
-        var place = Place(name: "Gran piramide de Guiza",
+        /*var place = Place(name: "Gran piramide de Guiza",
                           type: "Zona Arqueologica",
                           location: "Al Haram, Nazlet El-Semman, Al Haram, Giza Governorate, Egipto",
                           phone : "+20 02-2684-3627",
@@ -90,7 +90,7 @@ class ViewController: UITableViewController {
                       website : "tajmahal.gov.in",
                       image: #imageLiteral(resourceName: "taj_mahal"))
         
-        places.append(place)
+        places.append(place)*/
         
     }
     
@@ -125,7 +125,7 @@ class ViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! PlaceCellItem
         
-        cell.thumbnailImageView.image = place.image
+        cell.thumbnailImageView.image = UIImage(data: place.image! as Data)
         cell.nameLabel.text = place.name
         cell.timeLabel.text = place.type
         cell.ingredientsLabel.text = place.location

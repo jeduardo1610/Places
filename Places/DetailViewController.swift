@@ -33,7 +33,7 @@ class DetailViewController: UIViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         if let placeImage = place.image{
-            self.detailImageView.image = placeImage
+            self.detailImageView.image = UIImage(data: placeImage as Data)
         }
         
         self.title = place.name

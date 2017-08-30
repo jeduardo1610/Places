@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class PlaceViewController: UITableViewController,
                            UIImagePickerControllerDelegate,
@@ -141,9 +142,25 @@ class PlaceViewController: UITableViewController,
             
             if !(name.isEmpty || type.isEmpty || address.isEmpty || website.isEmpty || phone.isEmpty || rating.isEmpty) {
                 
-                self.place = Place(name: name, type: type, location: address, phone: phone, website: website, image: image)
-                place!.rating = rating
-                print(place!.description)
+                if let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer {
+                    let context = container.viewContext
+                    self.place = NSEntityDescription.insertNewObject(forEntityName: "Place", into: context) as? Place
+        
+                    self.place?.name = name
+                    self.place?.type = type
+                    self.place?.location = address
+                    self.place?.rating = rating
+                    self.place?.phone = phone
+                    self.place?.website = website
+                    self.place?.image = UIImagePNGRepresentation(image) as NSData?
+                    
+                    do {
+                        try context.save()
+                    }catch let error {
+                        print("Something went wrong while storing new place information \(error.localizedDescription)")
+                    }
+                }
+                
                 self.performSegue(withIdentifier: "unwindToHomeScreen", sender: self)
                 
             } else {
@@ -153,7 +170,6 @@ class PlaceViewController: UITableViewController,
         } else {
             showDialog()
         }
-        
     }
     
     func showDialog(){
