@@ -20,6 +20,7 @@
 		1DE19D6D1F54936300F2BDBA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE19D6C1F54936300F2BDBA /* MapKit.framework */; };
 		1DE19D6F1F54C57700F2BDBA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE19D6E1F54C57700F2BDBA /* MapViewController.swift */; };
 		1DE19D711F56102800F2BDBA /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE19D701F56102800F2BDBA /* PlaceViewController.swift */; };
+		1DE19D741F5711F100F2BDBA /* PlacesData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1DE19D721F5711F100F2BDBA /* PlacesData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		1DE19D6C1F54936300F2BDBA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1DE19D6E1F54C57700F2BDBA /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		1DE19D701F56102800F2BDBA /* PlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
+		1DE19D731F5711F100F2BDBA /* PlacesData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlacesData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				1D1459751F508EEB0088FBFF /* PlaceDetailItemCell.swift */,
 				1D1459761F508EEB0088FBFF /* ReviewPlaceViewController.swift */,
 				1D14597B1F5094140088FBFF /* Place.swift */,
+				1DE19D721F5711F100F2BDBA /* PlacesData.xcdatamodeld */,
 			);
 			path = Places;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D1459641F508AEF0088FBFF /* ViewController.swift in Sources */,
+				1DE19D741F5711F100F2BDBA /* PlacesData.xcdatamodeld in Sources */,
 				1D1459621F508AEF0088FBFF /* AppDelegate.swift in Sources */,
 				1D14597A1F508EEB0088FBFF /* ReviewPlaceViewController.swift in Sources */,
 				1DE19D711F56102800F2BDBA /* PlaceViewController.swift in Sources */,
@@ -352,6 +356,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1DE19D721F5711F100F2BDBA /* PlacesData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1DE19D731F5711F100F2BDBA /* PlacesData.xcdatamodel */,
+			);
+			currentVersion = 1DE19D731F5711F100F2BDBA /* PlacesData.xcdatamodel */;
+			path = PlacesData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1D1459561F508AEF0088FBFF /* Project object */;
 }
