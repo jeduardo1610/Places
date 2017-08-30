@@ -142,10 +142,11 @@ class PlaceViewController: UITableViewController,
             
             if !(name.isEmpty || type.isEmpty || address.isEmpty || website.isEmpty || phone.isEmpty || rating.isEmpty) {
                 
+                //Storing new Place on CoreData
                 if let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer {
                     let context = container.viewContext
                     self.place = NSEntityDescription.insertNewObject(forEntityName: "Place", into: context) as? Place
-        
+                    
                     self.place?.name = name
                     self.place?.type = type
                     self.place?.location = address

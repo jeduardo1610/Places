@@ -6,6 +6,7 @@
 //  Copyright © 2017 Jorge Eduardo. All rights reserved.
 //
 import UIKit
+import CoreData
 
 class ViewController: UITableViewController {
     
@@ -19,6 +20,21 @@ class ViewController: UITableViewController {
         
         
         self.headerTableView.tableFooterView = UIView(frame: CGRect.zero)//provide a cero hight view to avoid showing empty cells at the end of the table 
+        
+        //Fetching from CoreData
+        if let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer {
+            let context = container.viewContext
+            //let request : NSFetchRequest<Place> = Place.fetchRequest()
+            let request : NSFetchRequest<Place> = NSFetchRequest(entityName: "Place")
+            
+            do {
+                self.places = try context.fetch(request)
+                self.tableView.reloadData()
+            }catch let error {
+                print("Something went wrong while fetching from Places storage \(error.localizedDescription)")
+            }
+            
+        }
         
         /*var place = Place(name: "Gran piramide de Guiza",
                           type: "Zona Arqueologica",
