@@ -192,6 +192,17 @@ class ViewController: UITableViewController {
     
     @IBAction func unwindToMainViewControllerWithSegue(segue : UIStoryboardSegue){
         
+        if segue.identifier == "unwindToHomeScreen" {
+
+            if let addPlaceVC = segue.source as? PlaceViewController {
+                if let newPlace = addPlaceVC.place {
+                    self.places.append(newPlace)
+                    self.tableView.reloadData()
+                }
+            }
+            
+        }
+        
     }
     
 }

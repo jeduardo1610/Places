@@ -395,15 +395,27 @@
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxx-V3-w0k">
                                                             <rect key="frame" x="0.0" y="0.0" width="145" height="30.666666666666664"/>
+                                                            <color key="tintColor" red="0.23049725854407388" green="0.47069462293465592" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <state key="normal" title="No Me Gusta"/>
+                                                            <connections>
+                                                                <action selector="onRatingPressed:" destination="KeZ-xd-yWD" eventType="touchUpInside" id="cYc-Sw-4T3"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99C-3T-66y">
+                                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99C-3T-66y">
                                                             <rect key="frame" x="150" y="0.0" width="106.33333333333331" height="30.666666666666664"/>
+                                                            <color key="tintColor" red="0.23049725854407388" green="0.47069462293465592" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <state key="normal" title="Me Gusta"/>
+                                                            <connections>
+                                                                <action selector="onRatingPressed:" destination="KeZ-xd-yWD" eventType="touchUpInside" id="YRf-yo-gxv"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4q-hb-hXR">
+                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4q-hb-hXR">
                                                             <rect key="frame" x="261.33333333333326" y="0.0" width="136.66666666666669" height="30.666666666666664"/>
+                                                            <color key="tintColor" red="0.23049725854407388" green="0.47069462293465592" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <state key="normal" title="Me encanta"/>
+                                                            <connections>
+                                                                <action selector="onRatingPressed:" destination="KeZ-xd-yWD" eventType="touchUpInside" id="9dm-QG-sMd"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -429,13 +441,25 @@
                     <navigationItem key="navigationItem" id="aSu-XF-HNt">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Qan-xw-DTl">
                             <connections>
-                                <segue destination="Mq4-aZ-qR7" kind="unwind" unwindAction="unwindToMainViewControllerWithSegueWithSegue:" id="RtO-0j-Gql"/>
+                                <segue destination="Mq4-aZ-qR7" kind="unwind" identifier="unwindToHomeScreen" unwindAction="unwindToMainViewControllerWithSegueWithSegue:" id="RtO-0j-Gql"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wlm-cN-c7d"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wlm-cN-c7d">
+                            <connections>
+                                <action selector="onSavePressed:" destination="KeZ-xd-yWD" id="b7o-Rv-7kT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonEncanta" destination="L4q-hb-hXR" id="mfo-L7-by6"/>
+                        <outlet property="buttonMeGusta" destination="99C-3T-66y" id="qui-0e-Wsh"/>
+                        <outlet property="buttonNoMeGusta" destination="fxx-V3-w0k" id="ZYi-Jp-QIc"/>
                         <outlet property="imageView" destination="Hsa-hj-tuH" id="EPI-Qd-6FB"/>
+                        <outlet property="textFieldAddress" destination="pbj-Hw-AuM" id="eeV-DO-oxz"/>
+                        <outlet property="textFieldName" destination="b57-nr-SQE" id="zHO-41-vdF"/>
+                        <outlet property="textFieldPhone" destination="Qgz-Yu-uIE" id="692-k3-yzt"/>
+                        <outlet property="textFieldType" destination="9ls-1Z-gxs" id="4Vm-bU-ESa"/>
+                        <outlet property="textFieldWebSite" destination="cdy-dv-ZfN" id="bhB-k3-RYU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r9e-pa-ZNY" userLabel="First Responder" sceneMemberID="firstResponder"/>

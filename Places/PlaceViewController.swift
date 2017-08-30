@@ -11,12 +11,43 @@ import UIKit
 
 class PlaceViewController: UITableViewController,
                            UIImagePickerControllerDelegate,
-                           UINavigationControllerDelegate {
+                           UINavigationControllerDelegate,
+                           UITextFieldDelegate{
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var textFieldName: UITextField!
+    
+    @IBOutlet weak var textFieldType: UITextField!
+    
+    @IBOutlet weak var textFieldAddress: UITextField!
+   
+    @IBOutlet weak var textFieldWebSite: UITextField!
+ 
+    @IBOutlet weak var textFieldPhone: UITextField!
+
+    @IBOutlet weak var buttonNoMeGusta: UIButton!
+    
+    @IBOutlet weak var buttonMeGusta: UIButton!
+
+    @IBOutlet weak var buttonEncanta: UIButton!
+    
+    let defaultColor = UIColor(red: 59.0/255.0, green: 120.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+    
+    let selectedColor = UIColor.red
+    
+    var rating : String?
+    
+    var place : Place?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.textFieldName.delegate = self
+        self.textFieldType.delegate = self
+        self.textFieldPhone.delegate = self
+        self.textFieldAddress.delegate = self
+        self.textFieldWebSite.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,6 +99,74 @@ class PlaceViewController: UITableViewController,
 
         dismiss(animated: true, completion: nil)
         
+    }
+    
+    
+    @IBAction func onRatingPressed(_ sender: UIButton) {
+        
+        switch sender.tag {
+        case 0:
+            self.rating = "dislike"
+            self.buttonNoMeGusta.tintColor = selectedColor
+            self.buttonMeGusta.tintColor = defaultColor
+            self.buttonEncanta.tintColor = defaultColor
+        case 1:
+            self.rating = "good"
+            self.buttonMeGusta.tintColor = selectedColor
+            self.buttonNoMeGusta.tintColor = defaultColor
+            self.buttonEncanta.tintColor = defaultColor
+        case 2:
+            self.rating = "great"
+            self.buttonEncanta.tintColor = selectedColor
+            self.buttonNoMeGusta.tintColor = defaultColor
+            self.buttonMeGusta.tintColor = defaultColor
+        default:
+            break
+        }
+        
+    }
+
+    
+    
+    @IBAction func onSavePressed(_ sender: UIBarButtonItem) {
+        
+        
+        if let name = self.textFieldName.text,
+            let type = self.textFieldType.text,
+            let address = self.textFieldAddress.text,
+            let website = self.textFieldWebSite.text,
+            let phone = self.textFieldPhone.text,
+            let image = self.imageView.image,
+            let rating = self.rating {
+            
+            if !(name.isEmpty || type.isEmpty || address.isEmpty || website.isEmpty || phone.isEmpty || rating.isEmpty) {
+                
+                self.place = Place(name: name, type: type, location: address, phone: phone, website: website, image: image)
+                place!.rating = rating
+                print(place!.description)
+                self.performSegue(withIdentifier: "unwindToHomeScreen", sender: self)
+                
+            } else {
+                showDialog()
+            }
+            
+        } else {
+            showDialog()
+        }
+        
+    }
+    
+    func showDialog(){
+        let alertController = UIAlertController(title: "Agregar nuevo lugar", message: "Revisa que la información este completa", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    //Hide keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }
