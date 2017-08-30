@@ -187,8 +187,21 @@ class ViewController: UITableViewController {
         //Borrar
         let deleteAction : UITableViewRowAction = UITableViewRowAction(style: .default, title: "Eliminar") { (action, indexPath) in
             
-            self.places.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            //Deleting using core data
+            if let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer {
+                let context = container.viewContext
+                let placeToDelete = self.fetchResultsController.object(at: indexPath)
+                context.delete(placeToDelete)
+                
+                do{
+                    try context.save()
+                }catch let error {
+                    print("Something went wrong while deleting core data entity item \(error.localizedDescription)")
+                }
+            }
+            
+            //self.places.remove(at: indexPath.row)
+            //self.tableView.deleteRows(at: [indexPath], with: .fade)
             
         }
         deleteAction.backgroundColor = UIColor(colorLiteralRed: 202.0/255.0, green: 202.0/255.0, blue: 202.0/255.0, alpha: 1.0)
