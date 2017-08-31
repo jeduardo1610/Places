@@ -82,7 +82,10 @@ class PlaceViewController: UITableViewController,
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        self.imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        //    let resizedImage = selectedImg.convert(toSize:CGSize(width:100.0, height:100.0), scale: UIScreen.main.scale)
+
+        self.imageView.image = selectedImage?.convert(toSize:CGSize(width:250.0, height:300.0), scale: UIScreen.main.scale)
         self.imageView.contentMode = .scaleAspectFill
         self.imageView.clipsToBounds = true
         
@@ -192,4 +195,19 @@ class PlaceViewController: UITableViewController,
         return true
     }
     
+}
+
+extension UIImage
+{
+    // convenience function in UIImage extension to resize a given image
+    func convert(toSize size:CGSize, scale:CGFloat) ->UIImage
+    {
+        let imgRect = CGRect(origin: CGPoint(x:0.0, y:0.0), size: size)
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        self.draw(in: imgRect)
+        let copied = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return copied!
+    }
 }

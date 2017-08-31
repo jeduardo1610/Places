@@ -56,7 +56,7 @@ class ViewController: UITableViewController {
                                          type: "Zona Arqueologica",
                                          location: "Al Haram, Nazlet El-Semman, Al Haram, Giza Governorate, Egipto",
                                          rating : "rating",
-                                         phone : "20 02-2684-3627",
+                                         phone : "200226843627",
                                          website : "http://sca-egypt.org",
                                          image: #imageLiteral(resourceName: "piramide_kheops"))
                     
@@ -72,7 +72,7 @@ class ViewController: UITableViewController {
                                          type: "Zona Arqueologica",
                                          location: "Carretera Mérida Puerto Juárez Kilómetro 120, Zona Arqueológica Chichen Itza, 97751 Pisté, Yucatán",
                                          rating : "rating",
-                                         phone : "01 985 851 0137",
+                                         phone : "019858510137",
                                          website : "http://chichenitza.inah.gob.mx",
                                          image: #imageLiteral(resourceName: "Chichen_Itza"))
                     
@@ -80,7 +80,7 @@ class ViewController: UITableViewController {
                                          type: "Plaza",
                                          location: "Piazza del Colosseo, 1, 00184 Roma RM, Italia",
                                          rating : "rating",
-                                         phone : "39 06 3996 7700",
+                                         phone : "390639967700",
                                          website : "http://archeoroma.beniculturali.it",
                                          image: #imageLiteral(resourceName: "Coliseo_roma"))
                     
@@ -88,7 +88,7 @@ class ViewController: UITableViewController {
                                          type: "Zona Arqueologica",
                                          location: "Aguas Calientes Perú",
                                          rating : "rating",
-                                         phone : "51 84 582030",
+                                         phone : "5184582030",
                                          website : "http://machupicchu.gob.pe",
                                          image: #imageLiteral(resourceName: "Machu_Picchu"))
                     
@@ -104,7 +104,7 @@ class ViewController: UITableViewController {
                                          type: "Ciudad antigua",
                                          location: "Ma'an Wadi Musa Jordania",
                                          rating : "rating",
-                                         phone : "962 7 9504 0087",
+                                         phone : "962795040087",
                                          website : "http://nabataea.net/treasury.html",
                                          image: #imageLiteral(resourceName: "Petra_Jordan_BW_21"))
                     
