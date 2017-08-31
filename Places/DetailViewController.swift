@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class DetailViewController: UIViewController {
 
@@ -175,9 +176,59 @@ extension DetailViewController : UITableViewDelegate {
         switch indexPath.row {
         case 2:
             self.performSegue(withIdentifier: "showMap", sender: nil)
+        case 3 :
+            let alertController = UIAlertController(title: "Llamar a \(self.place.name!)", message: "Llamar o enviar SMS a \(self.place.phone!)", preferredStyle: .actionSheet)
+            let actionCall = UIAlertAction(title: "Llamar", style: .default, handler: { (action) in
+                
+                if let phoneUrl = URL(string: "tel://\(self.place.phone!)") {
+                    let app = UIApplication.shared
+                    
+                    if app.canOpenURL(phoneUrl) {
+                        app.open(phoneUrl, options: [:], completionHandler: { (success) in
+                            if success {
+                                print("Making Phone Call....")
+                            }
+                        })
+                    }
+                }
+                
+            })
+            
+            let actionSms = UIAlertAction(title: "SMS", style: .default, handler: { (action) in
+                
+                if MFMessageComposeViewController.canSendText() {
+                    let message = "Sending automatic SMS to \(self.place.name!)"
+                    let messageVc = MFMessageComposeViewController()
+                    messageVc.body = message
+                    messageVc.recipients = [self.place.phone!]
+                    messageVc.messageComposeDelegate = self
+                    
+                    self.present(messageVc, animated: true, completion: nil)
+                }
+
+                
+            })
+            
+            let actionCancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+            
+            alertController.addAction(actionCall)
+            alertController.addAction(actionSms)
+            alertController.addAction(actionCancel)
+            
+            self.present(alertController, animated: true, completion: nil)
+            
         default:
             break
         }
+    }
+    
+}
+
+extension DetailViewController : MFMessageComposeViewControllerDelegate {
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.dismiss(animated: true, completion: nil)
+        print(result)
     }
     
 }
