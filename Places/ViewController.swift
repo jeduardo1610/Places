@@ -38,7 +38,7 @@ class ViewController: UITableViewController {
         
         //Fetching places from Core Data
         let fetchRequest : NSFetchRequest<Place> = NSFetchRequest(entityName: "Place")
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         if let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer {
@@ -50,86 +50,81 @@ class ViewController: UITableViewController {
                 try fetchResultsController.performFetch()
                 self.places = fetchResultsController.fetchedObjects!
                 
+                if (fetchResultsController.fetchedObjects?.count)! <= 0 {
+                    
+                    insertNewPlaceObject(name: "Gran piramide de Guiza",
+                                         type: "Zona Arqueologica",
+                                         location: "Al Haram, Nazlet El-Semman, Al Haram, Giza Governorate, Egipto",
+                                         rating : "rating",
+                                         phone : "+20 02-2684-3627",
+                                         website : "sca-egypt.org",
+                                         image: #imageLiteral(resourceName: "piramide_kheops"))
+                    
+                    insertNewPlaceObject(name: "Cristo Redentor",
+                                         type: "Parque Nacional",
+                                         location: "Parque Nacional da Tijuca Escadaria do Corcovado Humaitá Rio de Janeiro- RJ 21072 Brasil" ,
+                                         rating : "rating",
+                                         phone : "123456789",
+                                         website : "cristoredentoroficial.com.br",
+                                         image: #imageLiteral(resourceName: "cristo_redentor"))
+                    
+                    insertNewPlaceObject(name: "El Castillo de Kukulcan",
+                                         type: "Zona Arqueologica",
+                                         location: "Carretera Mérida Puerto Juárez Kilómetro 120, Zona Arqueológica Chichen Itza, 97751 Pisté, Yucatán",
+                                         rating : "rating",
+                                         phone : "01 985 851 0137",
+                                         website : "chichenitza.inah.gob.mx",
+                                         image: #imageLiteral(resourceName: "Chichen_Itza"))
+                    
+                    insertNewPlaceObject(name: "Coliseo Romano",
+                                         type: "Plaza",
+                                         location: "Piazza del Colosseo, 1, 00184 Roma RM, Italia",
+                                         rating : "rating",
+                                         phone : "+39 06 3996 7700",
+                                         website : "archeoroma.beniculturali.it",
+                                         image: #imageLiteral(resourceName: "Coliseo_roma"))
+                    
+                    insertNewPlaceObject(name: "Machu Picchu",
+                                         type: "Zona Arqueologica",
+                                         location: "Aguas Calientes Perú",
+                                         rating : "rating",
+                                         phone : "+51 84 582030",
+                                         website : "machupicchu.gob.pe",
+                                         image: #imageLiteral(resourceName: "Machu_Picchu"))
+                    
+                    insertNewPlaceObject(name: "Gran Muralla China",
+                                         type: "Parque Nacional",
+                                         location: "Huairou, Pekín, China",
+                                         rating : "rating",
+                                         phone : "123456789",
+                                         website : "http://www.nationalgeographic.com.es/historia/grandes-reportajes/la-gran-muralla-china_8272",
+                                         image: #imageLiteral(resourceName: "muralla_china"))
+                    
+                    insertNewPlaceObject(name: "Tesoro de Petra",
+                                         type: "Ciudad antigua",
+                                         location: "Ma'an Wadi Musa Jordania",
+                                         rating : "rating",
+                                         phone : "+962 7 9504 0087",
+                                         website : "http://nabataea.net/treasury.html",
+                                         image: #imageLiteral(resourceName: "Petra_Jordan_BW_21"))
+                    
+                    insertNewPlaceObject(name: "Taj Mahal",
+                                         type: "Mausoleo",
+                                         location: "Taj Mahal, Agra, Uttar Pradesh, India",
+                                         rating : "rating",
+                                         phone : "123456789",
+                                         website : "tajmahal.gov.in",
+                                         image: #imageLiteral(resourceName: "taj_mahal"))
+                    
+                }
+                
             }catch let error {
                 print("Something went wrong while fetching objects from core data \(error.localizedDescription)")
             }
         }
         
         
-        self.headerTableView.tableFooterView = UIView(frame: CGRect.zero)//provide a cero hight view to avoid showing empty cells at the end of the table 
-        
-        /*var place = Place(name: "Gran piramide de Guiza",
-                          type: "Zona Arqueologica",
-                          location: "Al Haram, Nazlet El-Semman, Al Haram, Giza Governorate, Egipto",
-                          phone : "+20 02-2684-3627",
-                          website : "sca-egypt.org",
-                          image: #imageLiteral(resourceName: "piramide_kheops"))
-        
-        places.append(place)
-        
-        place = Place(name: "Cristo Redentor",
-                      type: "Parque Nacional",
-                      location: "Parque Nacional da Tijuca Escadaria do Corcovado Humaitá Rio de Janeiro- RJ 21072 Brasil" ,
-                      phone : "123456789",
-                      website : "cristoredentoroficial.com.br",
-                      image: #imageLiteral(resourceName: "cristo_redentor"))
-        
-        places.append(place)
-        
-        place = Place(name: "El Castillo de Kukulcan",
-                      type: "Zona Arqueologica",
-                      location: "Carretera Mérida Puerto Juárez Kilómetro 120, Zona Arqueológica Chichen Itza, 97751 Pisté, Yucatán",
-                      phone : "01 985 851 0137",
-                      website : "chichenitza.inah.gob.mx",
-                      image: #imageLiteral(resourceName: "Chichen_Itza"))
-        
-        places.append(place)
-        
-        place = Place(name: "Coliseo Romano",
-                      type: "Plaza",
-                      location: "Piazza del Colosseo, 1, 00184 Roma RM, Italia",
-                      phone : "+39 06 3996 7700",
-                      website : "archeoroma.beniculturali.it",
-                      image: #imageLiteral(resourceName: "Coliseo_roma"))
-        
-        places.append(place)
-        
-        place = Place(name: "Machu Picchu",
-                      type: "Zona Arqueologica",
-                      location: "Aguas Calientes Perú",
-                      phone : "+51 84 582030",
-                      website : "machupicchu.gob.pe",
-                      image: #imageLiteral(resourceName: "Machu_Picchu"))
-        
-        places.append(place)
-        
-        place = Place(name: "Gran Muralla China",
-                      type: "Parque Nacional",
-                      location: "Huairou, Pekín, China",
-                      phone : "123456789",
-                      website : "http://www.nationalgeographic.com.es/historia/grandes-reportajes/la-gran-muralla-china_8272",
-                      image: #imageLiteral(resourceName: "muralla_china"))
-        
-        places.append(place)
-        
-        place = Place(name: "Tesoro de Petra",
-                      type: "Ciudad antigua",
-                      location: "Ma'an Wadi Musa Jordania",
-                      phone : "+962 7 9504 0087",
-                      website : "http://nabataea.net/treasury.html",
-                      image: #imageLiteral(resourceName: "Petra_Jordan_BW_21"))
-        
-        places.append(place)
-        
-        place = Place(name: "Taj Mahal",
-                      type: "Mausoleo",
-                      location: "Taj Mahal, Agra, Uttar Pradesh, India",
-                      phone : "123456789",
-                      website : "tajmahal.gov.in",
-                      image: #imageLiteral(resourceName: "taj_mahal"))
-        
-        places.append(place)*/
-        
+        self.headerTableView.tableFooterView = UIView(frame: CGRect.zero)//provide a cero hight view to avoid showing empty cells at the end of the table
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -155,6 +150,30 @@ class ViewController: UITableViewController {
             let nameToFind = place.name.range(of: textToSearch, options: NSString.CompareOptions.caseInsensitive)
             return nameToFind != nil
         })
+        
+    }
+    
+    func insertNewPlaceObject(name : String, type : String, location : String, rating : String, phone : String, website : String, image : UIImage){
+        
+        //Storing new Place on CoreData
+        if let container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer {
+            let context = container.viewContext
+            let place = NSEntityDescription.insertNewObject(forEntityName: "Place", into: context) as? Place
+            
+           place?.name = name
+           place?.type = type
+           place?.location = location
+           place?.rating = rating
+           place?.phone = phone
+           place?.website = website
+           place?.image = UIImagePNGRepresentation(image) as NSData?
+            
+            do {
+                try context.save()
+            }catch let error {
+                print("Something went wrong while storing new place information \(error.localizedDescription)")
+            }
+        }
         
     }
     
