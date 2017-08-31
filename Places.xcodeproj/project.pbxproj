@@ -17,6 +17,9 @@
 		1D1459791F508EEB0088FBFF /* PlaceDetailItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1459751F508EEB0088FBFF /* PlaceDetailItemCell.swift */; };
 		1D14597A1F508EEB0088FBFF /* ReviewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1459761F508EEB0088FBFF /* ReviewPlaceViewController.swift */; };
 		1D14597C1F5094140088FBFF /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D14597B1F5094140088FBFF /* Place.swift */; };
+		1D4CA0931F58C405002CA101 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4CA0921F58C405002CA101 /* TutorialViewController.swift */; };
+		1D4CA0951F58C525002CA101 /* TutorialStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4CA0941F58C525002CA101 /* TutorialStep.swift */; };
+		1D4CA0971F58C767002CA101 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4CA0961F58C767002CA101 /* TutorialPageViewController.swift */; };
 		1D893FD41F571E0E0090E05E /* Places.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D893FD21F571E0E0090E05E /* Places.xcdatamodeld */; };
 		1DE19D6D1F54936300F2BDBA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE19D6C1F54936300F2BDBA /* MapKit.framework */; };
 		1DE19D6F1F54C57700F2BDBA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE19D6E1F54C57700F2BDBA /* MapViewController.swift */; };
@@ -36,6 +39,9 @@
 		1D1459751F508EEB0088FBFF /* PlaceDetailItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailItemCell.swift; sourceTree = "<group>"; };
 		1D1459761F508EEB0088FBFF /* ReviewPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewPlaceViewController.swift; sourceTree = "<group>"; };
 		1D14597B1F5094140088FBFF /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		1D4CA0921F58C405002CA101 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialViewController.swift; path = ../TutorialViewController.swift; sourceTree = "<group>"; };
+		1D4CA0941F58C525002CA101 /* TutorialStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialStep.swift; sourceTree = "<group>"; };
+		1D4CA0961F58C767002CA101 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		1D893FD31F571E0E0090E05E /* Places.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Places.xcdatamodel; sourceTree = "<group>"; };
 		1DE19D6C1F54936300F2BDBA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1DE19D6E1F54C57700F2BDBA /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -74,19 +80,22 @@
 		1D1459601F508AEF0088FBFF /* Places */ = {
 			isa = PBXGroup;
 			children = (
+				1D4CA0921F58C405002CA101 /* TutorialViewController.swift */,
+				1D4CA0961F58C767002CA101 /* TutorialPageViewController.swift */,
 				1D1459611F508AEF0088FBFF /* AppDelegate.swift */,
 				1D1459631F508AEF0088FBFF /* ViewController.swift */,
+				1D4CA0941F58C525002CA101 /* TutorialStep.swift */,
 				1DE19D701F56102800F2BDBA /* PlaceViewController.swift */,
-				1D1459651F508AEF0088FBFF /* Main.storyboard */,
 				1DE19D6E1F54C57700F2BDBA /* MapViewController.swift */,
-				1D14596A1F508AEF0088FBFF /* LaunchScreen.storyboard */,
-				1D14596D1F508AEF0088FBFF /* Info.plist */,
-				1D04394D1F50D6E100CF4122 /* Assets.xcassets */,
 				1D1459731F508EEB0088FBFF /* PlaceCellItem.swift */,
 				1D1459741F508EEB0088FBFF /* DetailViewController.swift */,
 				1D1459751F508EEB0088FBFF /* PlaceDetailItemCell.swift */,
 				1D1459761F508EEB0088FBFF /* ReviewPlaceViewController.swift */,
 				1D14597B1F5094140088FBFF /* Place.swift */,
+				1D1459651F508AEF0088FBFF /* Main.storyboard */,
+				1D14596A1F508AEF0088FBFF /* LaunchScreen.storyboard */,
+				1D14596D1F508AEF0088FBFF /* Info.plist */,
+				1D04394D1F50D6E100CF4122 /* Assets.xcassets */,
 				1D893FD21F571E0E0090E05E /* Places.xcdatamodeld */,
 			);
 			path = Places;
@@ -179,14 +188,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D1459641F508AEF0088FBFF /* ViewController.swift in Sources */,
+				1D4CA0951F58C525002CA101 /* TutorialStep.swift in Sources */,
 				1D1459621F508AEF0088FBFF /* AppDelegate.swift in Sources */,
 				1D14597A1F508EEB0088FBFF /* ReviewPlaceViewController.swift in Sources */,
 				1D893FD41F571E0E0090E05E /* Places.xcdatamodeld in Sources */,
 				1DE19D711F56102800F2BDBA /* PlaceViewController.swift in Sources */,
 				1D1459771F508EEB0088FBFF /* PlaceCellItem.swift in Sources */,
 				1D1459781F508EEB0088FBFF /* DetailViewController.swift in Sources */,
+				1D4CA0971F58C767002CA101 /* TutorialPageViewController.swift in Sources */,
 				1D14597C1F5094140088FBFF /* Place.swift in Sources */,
 				1D1459791F508EEB0088FBFF /* PlaceDetailItemCell.swift in Sources */,
+				1D4CA0931F58C405002CA101 /* TutorialViewController.swift in Sources */,
 				1DE19D6F1F54C57700F2BDBA /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
