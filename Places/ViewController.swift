@@ -57,7 +57,7 @@ class ViewController: UITableViewController {
                                          location: "Al Haram, Nazlet El-Semman, Al Haram, Giza Governorate, Egipto",
                                          rating : "rating",
                                          phone : "20 02-2684-3627",
-                                         website : "sca-egypt.org",
+                                         website : "http://sca-egypt.org",
                                          image: #imageLiteral(resourceName: "piramide_kheops"))
                     
                     insertNewPlaceObject(name: "Cristo Redentor",
@@ -65,7 +65,7 @@ class ViewController: UITableViewController {
                                          location: "Parque Nacional da Tijuca Escadaria do Corcovado Humaitá Rio de Janeiro- RJ 21072 Brasil" ,
                                          rating : "rating",
                                          phone : "123456789",
-                                         website : "cristoredentoroficial.com.br",
+                                         website : "http://cristoredentoroficial.com.br",
                                          image: #imageLiteral(resourceName: "cristo_redentor"))
                     
                     insertNewPlaceObject(name: "El Castillo de Kukulcan",
@@ -73,7 +73,7 @@ class ViewController: UITableViewController {
                                          location: "Carretera Mérida Puerto Juárez Kilómetro 120, Zona Arqueológica Chichen Itza, 97751 Pisté, Yucatán",
                                          rating : "rating",
                                          phone : "01 985 851 0137",
-                                         website : "chichenitza.inah.gob.mx",
+                                         website : "http://chichenitza.inah.gob.mx",
                                          image: #imageLiteral(resourceName: "Chichen_Itza"))
                     
                     insertNewPlaceObject(name: "Coliseo Romano",
@@ -81,7 +81,7 @@ class ViewController: UITableViewController {
                                          location: "Piazza del Colosseo, 1, 00184 Roma RM, Italia",
                                          rating : "rating",
                                          phone : "39 06 3996 7700",
-                                         website : "archeoroma.beniculturali.it",
+                                         website : "http://archeoroma.beniculturali.it",
                                          image: #imageLiteral(resourceName: "Coliseo_roma"))
                     
                     insertNewPlaceObject(name: "Machu Picchu",
@@ -89,7 +89,7 @@ class ViewController: UITableViewController {
                                          location: "Aguas Calientes Perú",
                                          rating : "rating",
                                          phone : "51 84 582030",
-                                         website : "machupicchu.gob.pe",
+                                         website : "http://machupicchu.gob.pe",
                                          image: #imageLiteral(resourceName: "Machu_Picchu"))
                     
                     insertNewPlaceObject(name: "Gran Muralla China",
@@ -113,7 +113,7 @@ class ViewController: UITableViewController {
                                          location: "Taj Mahal, Agra, Uttar Pradesh, India",
                                          rating : "rating",
                                          phone : "123456789",
-                                         website : "tajmahal.gov.in",
+                                         website : "http://tajmahal.gov.in",
                                          image: #imageLiteral(resourceName: "taj_mahal"))
                     
                 }

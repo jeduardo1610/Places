@@ -216,6 +216,20 @@ extension DetailViewController : UITableViewDelegate {
             alertController.addAction(actionCancel)
             
             self.present(alertController, animated: true, completion: nil)
+        case 4:
+            
+            if let website = URL(string : self.place.website!) {
+                let app = UIApplication.shared
+                
+                if app.canOpenURL(website){
+                    app.open(website, options: [:], completionHandler: { (success) in
+                        if success {
+                            print("Place website opened")
+                        }
+                    })
+                }
+            }
+            
             
         default:
             break
