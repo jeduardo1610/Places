@@ -35,6 +35,10 @@ class TutorialPageViewController: UIPageViewController {
         
     }
 
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -85,6 +89,24 @@ extension TutorialPageViewController : UIPageViewControllerDataSource {
             return pageContent
         }
         return nil
+    }
+    
+    /*
+     Those methods make the point indicator appear for each page
+     */
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return self.tutorialSteps.count
+    }
+    
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        
+        if let currentPage = storyboard?.instantiateViewController(withIdentifier: "gettingStartedPageContent") as? TutorialContentViewController {
+            
+            if let step = currentPage.tutorialStep {
+             return step.index
+            }
+        }
+        return 0
     }
     
 }
