@@ -54,6 +54,11 @@ class TutorialContentViewController: UIViewController {
             let page = parent as! TutorialPageViewController
             page.forward(toIndex: self.tutorialStep.index)
         case 2:
+            
+            //storing on user defaults
+            let defaults = UserDefaults.standard
+            defaults.set(true, forKey: "tutorialDone")
+            
             self.dismiss(animated: true, completion: nil)
         default:
             break

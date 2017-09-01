@@ -130,8 +130,16 @@ class ViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let pageViewController = storyboard?.instantiateViewController(withIdentifier: "gettingStartedController") as? TutorialPageViewController {
-            self.present(pageViewController, animated: true, completion: nil)
+        //fetching user defaults
+        let defaults = UserDefaults.standard
+        let tutorialDone = defaults.bool(forKey: "tutorialDone")
+        
+        if !tutorialDone {
+            
+            if let pageViewController = storyboard?.instantiateViewController(withIdentifier: "gettingStartedController") as? TutorialPageViewController {
+                self.present(pageViewController, animated: true, completion: nil)
+            }
+            
         }
         
     }
