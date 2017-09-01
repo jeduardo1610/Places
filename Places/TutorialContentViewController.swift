@@ -13,7 +13,10 @@ class TutorialContentViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var contentImageView: UIImageView!
-
+    @IBOutlet weak var nextButton: UIButton!
+    
+    @IBOutlet weak var pageIndicator: UIPageControl!
+    
     var tutorialStep : TutorialStep!
     
     override func viewDidLoad() {
@@ -23,6 +26,19 @@ class TutorialContentViewController: UIViewController {
         self.contentImageView.image = self.tutorialStep.image
         self.contentLabel.text = self.tutorialStep.content
         
+        self.pageIndicator.currentPage = self.tutorialStep.index
+        
+        switch tutorialStep.index {
+            
+        case 0...1:
+            self.nextButton.setTitle("Siguiente", for: .normal)
+        case 2 :
+            self.nextButton.setTitle("Finalizar", for: .normal)
+        default:
+            break
+            
+        }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -31,7 +47,21 @@ class TutorialContentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func nextPressed(_ sender: UIButton) {
+        
+        switch tutorialStep.index {
+        case 0...1:
+            let page = parent as! TutorialPageViewController
+            page.forward(toIndex: self.tutorialStep.index)
+        case 2:
+            self.dismiss(animated: true, completion: nil)
+        default:
+            break
+            
+        }
+        
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -44,6 +44,11 @@ class TutorialPageViewController: UIPageViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func forward(toIndex: Int){
+        if let nextVc = self.getViewController(atIndex: toIndex + 1) {
+            self.setViewControllers([nextVc], direction: .forward, animated: true, completion: nil)
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -94,7 +99,7 @@ extension TutorialPageViewController : UIPageViewControllerDataSource {
     /*
      Those methods make the point indicator appear for each page
      */
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+   /* func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return self.tutorialSteps.count
     }
     
@@ -107,6 +112,6 @@ extension TutorialPageViewController : UIPageViewControllerDataSource {
             }
         }
         return 0
-    }
+    }*/
     
 }
