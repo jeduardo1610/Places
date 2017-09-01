@@ -651,10 +651,10 @@
             </objects>
             <point key="canvasLocation" x="100" y="1838"/>
         </scene>
-        <!--Tutorial View Controller-->
+        <!--Tutorial Content View Controller-->
         <scene sceneID="IsB-4T-Bvj">
             <objects>
-                <viewController storyboardIdentifier="gettingStartedPageController" id="6Pg-sG-dXp" customClass="TutorialViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gettingStartedPageContent" id="6Pg-sG-dXp" customClass="TutorialContentViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JrY-02-2DY"/>
                         <viewControllerLayoutGuide type="bottom" id="D80-Cv-pDZ"/>
@@ -699,9 +699,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="contentImageView" destination="BRY-pB-BAF" id="gQR-CZ-MTD"/>
-                        <outlet property="contentLabel" destination="3f3-0q-0oo" id="enj-vk-wfZ"/>
-                        <outlet property="titleLabel" destination="7iF-4O-U0O" id="eOI-je-jZT"/>
+                        <outlet property="contentImageView" destination="BRY-pB-BAF" id="uc5-Lm-g1X"/>
+                        <outlet property="contentLabel" destination="3f3-0q-0oo" id="8v5-bM-3f1"/>
+                        <outlet property="titleLabel" destination="7iF-4O-U0O" id="ady-tV-cvD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdY-mM-KSd" userLabel="First Responder" sceneMemberID="firstResponder"/>

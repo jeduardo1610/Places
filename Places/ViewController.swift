@@ -127,6 +127,15 @@ class ViewController: UITableViewController {
         self.headerTableView.tableFooterView = UIView(frame: CGRect.zero)//provide a cero hight view to avoid showing empty cells at the end of the table
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let pageViewController = storyboard?.instantiateViewController(withIdentifier: "gettingStartedController") as? TutorialPageViewController {
+            self.present(pageViewController, animated: true, completion: nil)
+        }
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //Hide nav bar on swipe table view

@@ -1,27 +1,27 @@
 //
-//  TutorialViewController.swift
+//  TutorialContentViewController.swift
 //  Places
 //
-//  Created by Jorge Eduardo on 31/08/17.
+//  Created by Jorge Eduardo on 01/09/17.
 //  Copyright © 2017 Jorge Eduardo. All rights reserved.
 //
 
 import UIKit
 
-class TutorialViewController: ViewController {
+class TutorialContentViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var contentImageView: UIImageView!
-    
+
     var tutorialStep : TutorialStep!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tutorialStep.content = self.contentLabel.text!
-        self.tutorialStep.header = self.titleLabel.text!
-        self.tutorialStep.image = self.contentImageView.image
+        self.titleLabel.text = self.tutorialStep.header
+        self.contentImageView.image = self.tutorialStep.image
+        self.contentLabel.text = self.tutorialStep.content
         
         // Do any additional setup after loading the view.
     }
