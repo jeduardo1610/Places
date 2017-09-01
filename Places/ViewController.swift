@@ -304,6 +304,8 @@ class ViewController: UITableViewController {
                 
                 let destinationViewController = segue.destination as! DetailViewController
                 destinationViewController.place = selectedPlace
+                //Hidding tab bar
+                destinationViewController.hidesBottomBarWhenPushed = true
             }
             
         }
