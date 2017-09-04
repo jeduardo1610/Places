@@ -25,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName : barFont]
         }
         
+        UITabBar.appearance().tintColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        UITabBar.appearance().barTintColor = UIColor(red: 0.6, green: 0.8, blue: 1.0, alpha: 1.0)
+        //UITabBar.appearance().selectionIndicatorImage = UIImage(named: "tabbaritem-selected") //put a background image when the item is selected
+        
         return true
     }
 

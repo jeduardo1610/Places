@@ -226,11 +226,11 @@
             </objects>
             <point key="canvasLocation" x="545" y="1704"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Sobre nosotros-->
         <scene sceneID="52d-zJ-74Q">
             <objects>
                 <navigationController id="igm-j7-oUa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="HbY-2C-xyp"/>
+                    <tabBarItem key="tabBarItem" title="Sobre nosotros" image="about-us" id="HbY-2C-xyp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FNb-E1-3Ib">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -668,11 +668,11 @@
             </objects>
             <point key="canvasLocation" x="3728.985507246377" y="121.46739130434784"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Favoritos-->
         <scene sceneID="OO7-0O-mBP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z7r-pw-XQq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="RTh-Vh-cM8"/>
+                    <tabBarItem key="tabBarItem" title="Favoritos" image="favorite" id="RTh-Vh-cM8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1aW-1J-BLh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -801,11 +801,11 @@
             </objects>
             <point key="canvasLocation" x="-375" y="1704"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Descubre-->
         <scene sceneID="ypi-zN-CaF">
             <objects>
                 <navigationController id="skJ-cD-CUP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="recents" id="uVg-7i-WPQ"/>
+                    <tabBarItem key="tabBarItem" title="Descubre" image="discover" id="uVg-7i-WPQ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rEF-uR-Me8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -842,6 +842,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="f2x-rP-uIN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="MGD-VE-o4S">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -857,9 +858,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="about-us" width="25" height="25"/>
         <image name="clarisse" width="3648" height="5472"/>
         <image name="close" width="85" height="85"/>
+        <image name="discover" width="25" height="25"/>
         <image name="dislike" width="85" height="85"/>
+        <image name="favorite" width="25" height="25"/>
         <image name="good" width="85" height="85"/>
         <image name="great" width="85" height="85"/>
         <image name="placeholder-image" width="266" height="200"/>
