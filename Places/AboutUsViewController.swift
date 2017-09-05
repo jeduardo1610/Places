@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class AboutUsViewController: UITableViewController {
     
@@ -78,9 +79,15 @@ class AboutUsViewController: UITableViewController {
             default:
                 break
             }
+        case 1:
+            if let url = URL(string: sectionsLink[1][0]) {
+                let safariVC = SFSafariViewController(url: url, entersReaderIfAvailable: true)
+                present(safariVC, animated: true, completion: nil)
+            }
         default:
             break
         }
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
     /*
