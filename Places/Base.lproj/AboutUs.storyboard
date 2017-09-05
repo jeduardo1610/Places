@@ -6,10 +6,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Acerca de-->
         <scene sceneID="aCV-i3-6He">
             <objects>
                 <tableViewController id="wZi-UX-MbB" customClass="AboutUsViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,14 +37,48 @@
                             <outlet property="delegate" destination="wZi-UX-MbB" id="SIl-R3-ttI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="9PF-eo-qY9"/>
+                    <navigationItem key="navigationItem" title="Acerca de" id="9PF-eo-qY9"/>
                     <connections>
                         <outlet property="aboutUsTableView" destination="rPh-O5-KnE" id="3sE-vk-aMe"/>
+                        <segue destination="bIU-mt-ZSC" kind="show" identifier="showWebView" id="ILn-XX-CyH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vpP-fk-vZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1438" y="922"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="Mxw-WI-Xiz">
+            <objects>
+                <viewController id="bIU-mt-ZSC" customClass="WebViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EQ7-kx-MWY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fwp-ot-bf0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n6g-D0-GCd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTU-ga-2Te">
+                                <rect key="frame" x="20" y="64" width="374" height="623"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bTU-ga-2Te" firstAttribute="leading" secondItem="n6g-D0-GCd" secondAttribute="leadingMargin" id="ak0-ee-Hxf"/>
+                            <constraint firstItem="Fwp-ot-bf0" firstAttribute="top" secondItem="bTU-ga-2Te" secondAttribute="bottom" id="caa-Za-wFb"/>
+                            <constraint firstItem="bTU-ga-2Te" firstAttribute="top" secondItem="EQ7-kx-MWY" secondAttribute="bottom" id="duQ-Lo-r4K"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bTU-ga-2Te" secondAttribute="trailing" id="hjg-Ij-1eh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="bTU-ga-2Te" id="wXX-on-IvW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jIS-cA-dIK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2319" y="921"/>
         </scene>
         <!--Sobre nosotros-->
         <scene sceneID="52d-zJ-74Q">

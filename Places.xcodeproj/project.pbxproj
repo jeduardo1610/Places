@@ -18,6 +18,7 @@
 		1D14597A1F508EEB0088FBFF /* ReviewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1459761F508EEB0088FBFF /* ReviewPlaceViewController.swift */; };
 		1D14597C1F5094140088FBFF /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D14597B1F5094140088FBFF /* Place.swift */; };
 		1D1522621F5F059600A228A9 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1522611F5F059600A228A9 /* AboutUsViewController.swift */; };
+		1D1522641F5F5B3900A228A9 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1522631F5F5B3900A228A9 /* WebViewController.swift */; };
 		1D4439C31F5E136100C7C001 /* AboutUs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D4439C11F5E136100C7C001 /* AboutUs.storyboard */; };
 		1D4439C51F5E13C900C7C001 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D4439C41F5E13C900C7C001 /* Discover.storyboard */; };
 		1D4439C81F5E18FC00C7C001 /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D4439C61F5E18FC00C7C001 /* Tutorial.storyboard */; };
@@ -44,6 +45,7 @@
 		1D1459761F508EEB0088FBFF /* ReviewPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewPlaceViewController.swift; sourceTree = "<group>"; };
 		1D14597B1F5094140088FBFF /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		1D1522611F5F059600A228A9 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		1D1522631F5F5B3900A228A9 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		1D4439C21F5E136100C7C001 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AboutUs.storyboard; sourceTree = "<group>"; };
 		1D4439C41F5E13C900C7C001 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		1D4439C71F5E18FC00C7C001 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tutorial.storyboard; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		1D1459601F508AEF0088FBFF /* Places */ = {
 			isa = PBXGroup;
 			children = (
+				1D1522631F5F5B3900A228A9 /* WebViewController.swift */,
 				1D1522611F5F059600A228A9 /* AboutUsViewController.swift */,
 				1D4CA0981F59B286002CA101 /* TutorialContentViewController.swift */,
 				1D4CA09A1F59B4F8002CA101 /* TutorialPageViewController.swift */,
@@ -215,6 +218,7 @@
 				1D4CA0991F59B286002CA101 /* TutorialContentViewController.swift in Sources */,
 				1D14597C1F5094140088FBFF /* Place.swift in Sources */,
 				1D1459791F508EEB0088FBFF /* PlaceDetailItemCell.swift in Sources */,
+				1D1522641F5F5B3900A228A9 /* WebViewController.swift in Sources */,
 				1DE19D6F1F54C57700F2BDBA /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

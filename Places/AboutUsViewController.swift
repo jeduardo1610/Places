@@ -16,7 +16,7 @@ class AboutUsViewController: UITableViewController {
     
     let sectionsContent = [["Calificar en App Store", "Dejanos tus comentarios"], ["GitHub"]]
     
-    let sectionsLink = [["https://www.apple.com/itunes/", ""], ["https://github.com/jeduardo1610/"]]
+    let sectionsLink = [["https://www.apple.com/itunes/", ""], ["https://github.com/jeduardo1610/Places"]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +73,8 @@ class AboutUsViewController: UITableViewController {
                         app.open(appStoreUrl, options: [:], completionHandler: nil)
                     }
                 }
+            case 1:
+                performSegue(withIdentifier: "showWebView", sender: self.sectionsLink[1][0])
             default:
                 break
             }
@@ -116,14 +118,18 @@ class AboutUsViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showWebView" {
+            let destination = segue.destination as! WebViewController
+            destination.urlString = sender as! String
+        }
     }
-    */
+    
 
 }
