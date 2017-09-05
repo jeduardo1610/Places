@@ -10,11 +10,13 @@ import UIKit
 
 class AboutUsViewController: UITableViewController {
     
+    @IBOutlet var aboutUsTableView: UITableView!
+    
     let sections = ["Dejar Valoracion", "Siguenos en redes sociales"]
     
     let sectionsContent = [["Calificar en App Store", "Dejanos tus comentarios"], ["GitHub"]]
     
-    let sectionsLink = [["", ""], ["https://github.com/jeduardo1610/"]]
+    let sectionsLink = [["https://www.apple.com/itunes/", ""], ["https://github.com/jeduardo1610/"]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,8 @@ class AboutUsViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.aboutUsTableView.tableFooterView = UIView(frame: CGRect.zero)//provide a cero hight view to avoid showing empty cells at the end of the table
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +60,25 @@ class AboutUsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.sections[section]
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0:
+                if let appStoreUrl = URL(string: self.sectionsLink[0][0]){
+                    let app = UIApplication.shared
+                    if app.canOpenURL(appStoreUrl){
+                        app.open(appStoreUrl, options: [:], completionHandler: nil)
+                    }
+                }
+            default:
+                break
+            }
+        default:
+            break
+        }
     }
     
     /*
