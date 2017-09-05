@@ -21,7 +21,6 @@ class ViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil/*#selector()*/) //customize back button - here we may configure a completion handler if needed
         
-        
         //Adding search bar
         //Here we can indicate if result set will be displayed on the same view controller or in a different one
         self.searchController = UISearchController(searchResultsController: nil)
@@ -375,5 +374,4 @@ extension ViewController : UISearchResultsUpdating{
             self.tableView.reloadData()
         }
     }
-    
 }
